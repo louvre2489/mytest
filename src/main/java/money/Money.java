@@ -20,9 +20,15 @@ public class Money implements Expression {
   }
 
   Expression plus(Money addend) {
-    return new Money(this.amount + addend.amount, this.currency);
+    return new Sum(this, addend);
   }
 
+  @Override
+  public Money reduce(String to) {
+    return this;
+  }
+
+  @Override
   public boolean equals(Object object) {
     Money money = (Money) object;
     return amount == money.amount
