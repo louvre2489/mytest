@@ -1,6 +1,6 @@
 package money;
 
-abstract class Money {
+public class Money {
 
   protected int amount;
 
@@ -11,7 +11,9 @@ abstract class Money {
     this.currency = currency;
   }
 
-  abstract Money times(int multiplier);
+  Money times(int multiplier) {
+    return new Money(this.amount * multiplier, this.currency);
+  }
 
   String currency() {
     return this.currency;
@@ -20,7 +22,12 @@ abstract class Money {
   public boolean equals(Object object) {
     Money money = (Money) object;
     return amount == money.amount
-      && getClass().equals(money.getClass());
+      && this.currency().equals(money.currency());
+  }
+
+  @Override
+  public String toString() {
+    return this.amount + " " + this.currency;
   }
 
   static Money dollar(int amount) {
