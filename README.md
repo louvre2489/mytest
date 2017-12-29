@@ -22,3 +22,5 @@
 - [x] ~~Bank.reduce(Money)~~
 - [x] ~~Moneyを変換して換算を行う~~
 - [x] ~~Reduce(Bank, String)~~
+- [ ] Sum.plus
+- [ ] Expression.times
